@@ -1,0 +1,23 @@
+.grid {
+  display: flex;
+  margin: 0;
+
+  @include breakpoint($mobile-large) {
+    display: block;
+  }
+}
+
+.grid__column {
+  flex: 1;
+  justify-content: space-between;
+  // padding: 10px;
+
+  &--one-third {
+    max-width: 33.33%;
+  }
+
+  &--one-half {
+    max-width: 50%;
+  }
+}
+

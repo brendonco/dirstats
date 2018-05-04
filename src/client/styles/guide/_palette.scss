@@ -1,0 +1,15 @@
+@import '../variables';
+
+.dfs-palette__demo {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  border: 1px solid colour(dirstats, regent-grey);
+
+  @each $key, $value in $dfs-palettes {
+    &--#{$key} {
+      background: $value;
+    }
+  }
+}
