@@ -2,7 +2,7 @@
   @if $depth < 1 {
     box-shadow: none;
   } @else if $depth > 5 {
-    @warn 'Invalid $depth `#{$depth}` for mixin `card`.';
+    @warn "Invalid $depth `#{$depth}` for mixin `card`.";
   } @else {
     box-shadow: bottom-shadow($depth), top-shadow($depth);
   }
@@ -11,7 +11,7 @@
 .card {
   @include card(1);
 
-  background: colour(dirstats, pale-sky);
+  background: colour(dirstats, black-ghost);
   border: 1px solid colour(dirstats, milky-white);
   color: colour(dirstats, milky-white);
 

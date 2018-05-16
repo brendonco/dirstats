@@ -34,16 +34,19 @@ function _formattedSuccessfulRun(stats) {
 
   // const dev = stats.isDev
   //   ? `<div class="stats-success-dev">
-  //     Note: Running dev-server does not necessarily 
+  //     Note: Running dev-server does not necessarily
   //     represent accurate final assets size and performance metrics.
   //   </div>`
   //   : "";
 
-  return [{
-    hash: stats.hash,
-    webpackVersion: stats.version,
-    note: dev
-  }].filter(Boolean);
+  return [
+    {
+      hash: stats.hash,
+      webpackVersion: stats.version,
+      note: dev,
+      successFooter
+    }
+  ].filter(Boolean);
 
   // return [head, dev, successFooter].filter(Boolean);
 }

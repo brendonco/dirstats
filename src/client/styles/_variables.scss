@@ -7,28 +7,29 @@ $screen-small: 1024;
 $screen-large: 1280;
 
 // fonts
-$font-monserrat-sans: 'Montserrat', sans-serif;
+$font-monserrat-sans: "Montserrat", sans-serif;
 
 $dfs-palettes: (
   midnight-blue: #036,
-  black-ghost: #000,
+  black-ghost: #23241f,
   pale-sky: #6b717f,
   regent-grey: #808c99,
   milky-white: #fff,
   tomato: #f55555,
-  galia-melon: #f6B33C,
+  galia-melon: #f6b33c,
+  navy-blue: #4fc1e9,
+  aqua-sky: #4a89dc,
+  light-lime: #0df9a3
 );
 
 // color
-$palettes: (
-  dirstats: $dfs-palettes
-);
+$palettes: (dirstats: $dfs-palettes);
 
 @function colour($group, $name) {
   $colour: map-get(map-get($palettes, $group), $name);
 
   @if $colour == null {
-    @error 'Colour #{$name} not found in palettes';
+    @error "Colour #{$name} not found in palettes";
   }
 
   @return $colour;
@@ -38,21 +39,49 @@ $palettes: (
 BREAKPOINTS
 *********************/
 
- @mixin breakpoint($point) {
-   @if $point == $screen-large {
-     @media (min-width: 70em) { @content ; }
+@mixin breakpoint($point) {
+  @if $point == $screen-large {
+    @media (min-width: 70em) {
+      @content;
+    }
+  } @else if $point == $screen-small {
+    @media (min-width: 64em) {
+      @content;
+    }
+  } @else if $point == $tablet-large {
+    @media (min-width: 50em) {
+      @content;
+    }
+  } @else if $point == $tablet-small {
+    @media (min-width: 37.5em) {
+      @content;
+    }
+  } @else if $point == $mobile-large {
+    @media (max-width: 37.5em) {
+      @content;
+    }
   }
-   @else if $point == $screen-small {
-     @media (min-width: 64em) { @content ; }
-  }
-    @else if $point == $tablet-large {
-     @media (min-width: 50em) { @content ; }
-  }
-   @else if $point == $tablet-small {
-     @media (min-width: 37.5em)  { @content ; }
-  }
-  @else if $point == $mobile-large {
-     @media (max-width: 37.5em)  { @content ; }
+}
 
-  }
+// Linear gradient
+// Usage: @include linearGradient(colour(dirstats, pale-sky), colour(dirstats, milky-white))
+@mixin linearGradient($top, $bottom) {
+  background: $top; /* Old browsers */
+  background: -moz-linear-gradient(top, $top 0%, $bottom 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, $top),
+    color-stop(100%, $bottom)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    $top 0%,
+    $bottom 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, $top 0%, $bottom 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, $top 0%, $bottom 100%); /* IE10+ */
+  background: linear-gradient(to bottom, $top 0%, $bottom 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
 }
