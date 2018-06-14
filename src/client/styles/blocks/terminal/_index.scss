@@ -1,0 +1,7 @@
+.terminal-logs {
+  &__footer {
+    &--success {
+      color: colour(dirstats, light-lime);
+    }
+  }
+}
