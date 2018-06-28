@@ -13,7 +13,8 @@
     "build": "webpack --env.production --config config/webpack && npm run copy:server && npm run copy:assets",
     "watch": "DIRSTATS_ENV=development webpack --watch --config config/webpack",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "test": "jest test"
   },
   "engines": {
     "node": ">=6.0.0"
@@ -51,6 +52,7 @@
     "autoprefixer": "^7.1.2",
     "babel": "^6.23.0",
     "babel-core": "^6.25.0",
+    "babel-jest": "^23.0.1",
     "babel-loader": "^7.1.1",
     "babel-plugin-jsx-pragmatic": "^1.0.2",
     "babel-plugin-recharts": "^1.1.1",
@@ -59,13 +61,15 @@
     "babel-plugin-transform-react-constant-elements": "^6.23.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.6",
-    "babel-preset-env": "^1.6.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-runtime": "^6.26.0",
     "css-loader": "^0.28.4",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^1.1.5",
     "husky": "^0.14.3",
+    "jest": "^23.1.0",
     "lint-staged": "^6.0.0",
     "ncp": "^2.0.0",
     "node-sass": "^4.5.3",
@@ -74,6 +78,7 @@
     "raw-loader": "^0.5.1",
     "react-hot-loader": "^4.1.1",
     "react-lifecycles-compat": "^3.0.2",
+    "react-test-renderer": "^16.4.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "svg-url-loader": "^2.1.1",
