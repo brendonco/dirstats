@@ -1,6 +1,8 @@
 # dirstats
 File System Statistics Dashboard for Webpack
 
+##Drop me a line if your interested to contribute.
+
 **Tech Stack:**
 
 * React with Sass pre-processor.
